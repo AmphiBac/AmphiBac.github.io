@@ -3,6 +3,7 @@ layout: page
 title: Importing files for use in the AmphiBac R-package
 permalink: /importing/
 ---
+
 ### Importing your fasta file of representative sequences of ASV/OTUs
 To do this well use the biostrings package (a dependancy of AmphiBac, so its already installed)
 ```
@@ -10,25 +11,42 @@ library(biostrings)
 fasta.file<-readDNAStringSet("fasta.file.fna")
 ```
 Thats it. Not everything has to be hard with coding. With your sequences imported you'll be able to compare them to the databse. See THIS TUTORIAL for how to do that.
-
----
-AmphiBac's core function is to compare 16S rRNA sequences to our database with the use of vsearch. However, the R-package does offer the ability to do more advanced analyses. As such, here's some scripts for how to import metadata and your ASV/OTU table from a wide variety of bioinformatics paltforms. 
+AmphiBac's core function is to compare 16S rRNA sequences to our database with the use of vsearch. However, the R-package does offer the ability to do more advanced analyses. As such, here's some scripts for how to import metadata and your ASV/OTU table from a wide variety of bioinformatics platforms. 
 
 ### Reading in your metadata
 
-Metadata aka all that lovely extra information about your hard collected samples (e.g. salinity, life stage, length) is a important part of data analysis. The AmphiBac package can use your metadata, so lets talk about how to import it. Most metadata is easily imported with the base R function 'read.delim'.
+Metadata aka all that lovely extra information about your hard collected samples (e.g. salinity, life stage, length) is an important part of data analysis. The AmphiBac package can use your metadata to make your life easier, so lets talk about how to import it. Most metadata is easily imported with the base R function 'read.delim' as show below.
 
 ```
+#for a tab delimited file
 meta<-read.delim("metadata_file.txt", header=T)
+
+#for a CSV file
+meta<-read.delim("metadata_file.txt", header=T, sep=",")
 ```
 
-### From biom format
+If you have an excel file, we'll need to use the 'readxl' package in R.
+```
+#install readxl pakage if you don't already have it
+install.packages("readxl")
+
+#load readxl package
+library("readxl")
+
+# Read xlsx files. Check the extension on your file for which command to use
+df <- read_excel("/path/to/file/metadata_file.xlsx")
+df <- read_xlsx("/path/to/file/metadata_file.xlsx")
+df <- read_xsl("/path/to/file/metadata_file.xsl")
+```
+If you're still having trouble getting your metadata into R, feel free to reach out via our <a href="/help/"> help page</a>.
+
+### Import ASV/OTU table from biom format
 Do you have a file with an extension ".biom"? This is the Biological Observation Matrix (BIOM, http://biom-format.org/). This is a fairly common format, in particular if youve used QIIME1 or things associated with the Earth Microbiome Project. 
 
 To use this type of file in R, well need to harness the 'phyloseq' in R. Lets start by installing it:
 
 ```
-#first we need bioconductor as this isn't on CRAN
+#first we need BiocManager as this isn't on CRAN
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install(version = "3.16")
@@ -50,7 +68,7 @@ asv.tabl<- import_biom("path/to/file/feature-table.biom")
 
 Thats it. 
 
-### From Mothur
+### Import ASV/OTU table from Mothur
 
 Mothur ASV/OTU tables are usually in the format below (as of 1/11/2023).
 
@@ -70,14 +88,13 @@ mothur.table<-t(mothur.table)
 ```
 If mothur decides to change its column names, you can simply edit the script above to change the column numbers parenthases.
 
-### From phyloseq
+### Import ASV/OTU table from phyloseq
 If you have data as a phyloseq object, converting it to AmphiBac ready is easy enough.
 
 ```
 library(phyloseq)
 
 #assuming your phyloseq object is called 'terrific_data'
-
 asv.tab <- as(otu_table(terrific_data), "matrix")
 ```
 The resulting output should have ASVs/OTUs as rows and samples as columns. IF its teh other way around, simply run:
@@ -86,7 +103,7 @@ The resulting output should have ASVs/OTUs as rows and samples as columns. IF it
 asv.tab<-as.data.frame(t(asv.tab))
 ```
 
-### QIIME2 QZA
+### Import ASV/OTU table from QIIME2 QZA format
 To import your QZA file from QIIME2 to R we'll need to take advantage of the R package 'qiime2R'. We will also need the 'devtools' package. Lets install 'qiime2r' first.
 
 ```
@@ -98,7 +115,7 @@ devtools::install_github("jbisanz/qiime2R")
 Next, lets import your QZA file.
 ```
 library(qiime2R)
-asv.tabl<-read_qza("./Github/panama_golden_frogs/Run11_table-deblur.qza")
+asv.tabl<-read_qza("/path/to/qza/file/file.qza")
 
 ```
 This gives you a list of things (from the documentation for qiime2r):
@@ -122,11 +139,11 @@ asv.tabl2<-asv.tabl$data
 
 Youre good to go!
 
-### DADA2 (R)
+### Import ASV/OTU table from DADA2
 At the end of the DADA2 R SOP (e.g. https://benjjneb.github.io/dada2/tutorial.html) you should have a data frame with ASVs as rows and sample anmes as columns. So nothing more should be necessary here. :)
 
-### USEARCH/VSEARCH
-vsearch and usearch both produce (after runnning the OTU/ASV calling step) a text file that has sample names as columns and ASVs/OTUs as rows. As such we simple need to run:
+### Import ASV/OTU table from USEARCH/VSEARCH
+vsearch and usearch both produce (after runnning the OTU/ASV calling step) a text file that has sample names as columns and ASVs/OTUs as rows. As such we simply need to run:
 
 ```
 asv.table<-read.delim("otu_tab.txt", header=T, row.names=1)
