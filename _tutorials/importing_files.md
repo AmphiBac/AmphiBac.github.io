@@ -5,9 +5,9 @@ permalink: /importing/
 ---
 
 
-# Imorting files for use in AmphiBac
+## Imorting files for use in AmphiBac
 ---
-## Importing your fasta file of representative sequences of ASV/OTUs
+### Importing your fasta file of representative sequences of ASV/OTUs
 To do this well use the biostrings package (a dependancy of AmphiBac, so its already installed)
 ```
 library(biostrings)
@@ -18,7 +18,7 @@ Thats it. Not everything has to be hard with coding. With your sequences importe
 ---
 AmphiBac's core function is to compare 16S rRNA sequences to our database with the use of vsearch. However, the R-package does offer the ability to do more advanced analyses. As such, here's some scripts for how to import metadata and your ASV/OTU table from a wide variety of bioinformatics paltforms. 
 
-## Reading in your metadata
+### Reading in your metadata
 
 Metadata aka all that lovely extra information about your hard collected samples (e.g. salinity, life stage, length) is a important part of data analysis. The AmphiBac package can use your metadata, so lets talk about how to import it. Most metadata is easily imported with the base R function 'read.delim'.
 
@@ -26,7 +26,7 @@ Metadata aka all that lovely extra information about your hard collected samples
 meta<-read.delim("metadata_file.txt", header=T)
 ```
 
-## From biom format
+### From biom format
 Do you have a file with an extension ".biom"? This is the Biological Observation Matrix (BIOM, http://biom-format.org/). This is a fairly common format, in particular if youve used QIIME1 or things associated with the Earth Microbiome Project. 
 
 To use this type of file in R, well need to harness the 'phyloseq' in R. Lets start by installing it:
@@ -54,7 +54,7 @@ asv.tabl<- import_biom("path/to/file/feature-table.biom")
 
 Thats it. 
 
-## From Mothur
+### From Mothur
 
 Mothur ASV/OTU tables are usually in the format below (as of 1/11/2023).
 
@@ -74,7 +74,7 @@ mothur.table<-t(mothur.table)
 ```
 If mothur decides to change its column names, you can simply edit the script above to change the column numbers parenthases.
 
-## From phyloseq
+### From phyloseq
 If you have data as a phyloseq object, converting it to AmphiBac ready is easy enough.
 
 ```
@@ -90,7 +90,7 @@ The resulting output should have ASVs/OTUs as rows and samples as columns. IF it
 asv.tab<-as.data.frame(t(asv.tab))
 ```
 
-## QIIME2 QZA
+### QIIME2 QZA
 To import your QZA file from QIIME2 to R we'll need to take advantage of the R package 'qiime2R'. We will also need the 'devtools' package. Lets install 'qiime2r' first.
 
 ```
@@ -126,10 +126,10 @@ asv.tabl2<-asv.tabl$data
 
 Youre good to go!
 
-## DADA2 (R)
+### DADA2 (R)
 At the end of the DADA2 R SOP (e.g. https://benjjneb.github.io/dada2/tutorial.html) you should have a data frame with ASVs as rows and sample anmes as columns. So nothing more should be necessary here. :)
 
-## USEARCH/VSEARCH
+### USEARCH/VSEARCH
 vsearch and usearch both produce (after runnning the OTU/ASV calling step) a text file that has sample names as columns and ASVs/OTUs as rows. As such we simple need to run:
 
 ```
