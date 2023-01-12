@@ -6,9 +6,9 @@ permalink: /help/
 
 Issues with the database or R package can be directed can be reported in one of two ways: 
 
-1. Via our <a href="https://github.com/pattyjk/pattyjk.github.io/issues"> GitHub issues page </a> and make a post
+1. Via our <a href="https://github.com/AmphiBac/AmphiBac.github.io/issues"> GitHub issues page </a> and make a post
 
-2. Direct email to patrick.kearns [at] umb.edu
+2. Direct email to patrick.kearns [at] umb.edu or mbletz [at] umass.edu
 
 In all instances please provide:
 
