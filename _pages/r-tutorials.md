@@ -7,12 +7,12 @@ The AmphiBac database relies on open-access tools (R, GitHub, and vsearch) to pr
 
 ---
 <ol>
-<li>From raw reads to database ready analysis with QIIME2 (for beginners of high-throughput sequencing analysis of 16S rRNA gene data) </li>
+<li>From raw reads to database ready analysis with QIIME2 (for beginners of high-throughput sequencing analysis of 16S rRNA gene data)- <a href="/16s-workflow/"> tutorial</a> </li>
 <li>Importing your data into R from common bioinformatics pacakges (e.g. QIIME2, mothur, etc)- <a href="/importing/"> tutorial</a></li>
-<li>Comparing your sequences to the AmphiBac Database</li>
-<li>Calculate the percentage of inhibitory/enhancing/noninhibitory taxa </li>
-<li>Create a ASV/OTU table of inhibitory taxa</li>
-<li>Antifungal richness calculations</li>
-<li>Implement filtering to subset database based on metadata (e.g. country, frog species)</li>
-<li>Pull the latest AmphiBac database (one is provided on CRAN, but we do update it on GitHub in between CRAN releases...we're good like that)</li>  
+<li>Comparing your sequences to the AmphiBac Database- <a href="/comparison/"> tutorial</a></li>
+<li>Calculate the percentage of inhibitory/enhancing/noninhibitory taxa- <a href="/calculations/"> tutorial</a> </li>
+<li>Create a ASV/OTU table of inhibitory taxa- <a href="/tabeling/"> tutorial</a></li>
+<li>Antifungal richness calculations- <a href="/richness/"> tutorial</a></li>
+<li>Implement filtering to subset database based on metadata (e.g. country, frog species)- <a href="/filtering/"> tutorial</a></li>
+<li>Pull the latest AmphiBac database (one is provided on CRAN, but we do update it on GitHub in between CRAN releases...we're good like that)- <a href="/pulling/"> tutorial</a></li>  
 </ol>
