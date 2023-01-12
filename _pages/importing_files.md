@@ -1,6 +1,6 @@
 ---
 layout: page
-title: IMporting files for use in the AmphiBac R-package
+title: Importing files for use in the AmphiBac R-package
 permalink: /importing/
 ---
 
