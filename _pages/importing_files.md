@@ -3,10 +3,6 @@ layout: page
 title: Importing files for use in the AmphiBac R-package
 permalink: /importing/
 ---
-
-
-## Imorting files for use in AmphiBac
----
 ### Importing your fasta file of representative sequences of ASV/OTUs
 To do this well use the biostrings package (a dependancy of AmphiBac, so its already installed)
 ```
