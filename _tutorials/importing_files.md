@@ -1,3 +1,10 @@
+---
+layout: page
+title: IMporting files for use in the AmphiBac R-package
+permalink: /importing/
+---
+
+
 # Imorting files for use in AmphiBac
 ---
 ## Importing your fasta file of representative sequences of ASV/OTUs
