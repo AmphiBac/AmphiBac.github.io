@@ -10,7 +10,7 @@ AmphiBac requires <a href="https://github.com/torognes/vsearch">vsearch</a> to c
   <il>Windows>/il>
     <il>MacOS (doesn't matter what chip your Mac has)</il>
     <il>Linux (Ubuntu)</il>
-    
+    </ol>  
     ## Windows
     https://github.com/torognes/vsearch/releases/download/v2.22.1/vsearch-2.22.1-win-x86_64.zip
     ## MacOS
