@@ -7,9 +7,9 @@ permalink: /vsearch/
 AmphiBac requires <a href="https://github.com/torognes/vsearch">vsearch</a> to compare your 16S rRNA gene sequences to the database. While vsearch is free of use, its is available only as a downloadable binary. Luckily for you, we have a script in AmphiBac to pull a version of vsearch for your use. CLick the link below for your operating system of choice.
 
 <ol>
-  <il>Windows</il>
-    <il>MacOS (doesn't matter what chip your Mac has)</il>
-    <il>Linux (Ubuntu)</il>
+  <li>Windows</li>
+    <li>MacOS (doesn't matter what chip your Mac has)</li>
+    <li>Linux (Ubuntu)</li>
     </ol>  
     ## Windows
     https://github.com/torognes/vsearch/releases/download/v2.22.1/vsearch-2.22.1-win-x86_64.zip
