@@ -10,7 +10,7 @@ The AmphiBac R package is available on <a href="Link to Package"> CRAN</a>. To s
 install.packages("AmphiBac")
 ```
 
-It will do its thing and spit out some code and once it gives you the green light you're all set to go. If you have any issues installing the package, please reach out via our <a href="https://pattyjk.github.io/help/">help page </a>.
+It will do its thing and spit out some code and once it gives you the green light you're all set to go. If you have any issues installing the package, please reach out via our <a href="https://amphibac.github.io/help/">help page </a>.
 
 The AmphiBac pacakge relies on a few other R-packages:
 
